@@ -1,0 +1,40 @@
+/* red: #D43C33 */
+
+section.topbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #D43C33;
+  padding: 17px 10px;
+}
+section.topbar .logo>svg{
+  width: 142px;height: 25px;
+  vertical-align: top;
+
+}
+section.topbar > a{
+  color: white;
+  display: inline-block;
+  font-size: 15px;
+  padding: 5px 11px;
+  line-height: 20px;
+  position: relative;
+}
+section.topbar > a::after{
+  content:'';
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  border: 1px solid white;
+  border-radius: 50px;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+
+}
+section.globalTabs{}
+section.playlists{}
+section.songs{}
+section.art{}
+
