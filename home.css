@@ -1,5 +1,7 @@
 /* red: #D43C33 */
-
+body{
+  font-size: 15px;
+}
 section.topbar{
   display: flex;
   justify-content: space-between;
@@ -15,7 +17,6 @@ section.topbar .logo>svg{
 section.topbar > a{
   color: white;
   display: inline-block;
-  font-size: 15px;
   padding: 5px 11px;
   line-height: 20px;
   position: relative;
@@ -31,10 +32,27 @@ section.topbar > a::after{
   border-radius: 50px;
   transform: scale(0.5);
   transform-origin: 0 0;
-
 }
 section.globalTabs{}
 section.playlists{}
 section.songs{}
 section.art{}
 
+
+.tabs{
+  display: flex;
+}
+.tabs>li{
+  width: 33.333333%;
+  text-align: center;
+}
+.tabs >li.active{
+  background:red;
+}
+.tab-content > li{
+  display: none;
+}
+.tab-content > li.active{
+  display: block;
+  background: red;
+}
