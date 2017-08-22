@@ -33,26 +33,79 @@ section.topbar > a::after{
   transform: scale(0.5);
   transform-origin: 0 0;
 }
-section.globalTabs{}
-section.playlists{}
-section.songs{}
-section.art{}
 
-
+/* tabs */
 .tabs{
   display: flex;
+  border-bottom: 1px solid #CCCCCC;
 }
 .tabs>li{
   width: 33.333333%;
   text-align: center;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tabs>li>.text{
+  padding: 10px 5px;
+  position: relative;
+  top: 1px;
 }
 .tabs >li.active{
-  background:red;
+  color: #D43C33;
+}
+.tabs >li.active>.text{ 
+}
+.tabs >li.active>.text::after{
+  content: '';
+  position: absolute;
+  height: 2px;
+  background: #D43C33;
+  bottom: 1px;
+  left: 0;
+  width: 100%;
 }
 .tab-content > li{
   display: none;
 }
 .tab-content > li.active{
   display: block;
-  background: red;
 }
+
+section.playlists{
+
+}
+section.playlists > h2{
+  border-left: 2px solid #D43C33;
+  font-size: 17px;
+  line-height: 1;
+  padding-left: 8px;
+  margin: 20px 0 8px;
+}
+section.playlists > ol.songs{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 13px;
+}
+section.playlists > ol.songs > li{
+  width: 32.8%;
+  margin: 8px 0;
+}
+section.playlists > ol.songs > li p{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 18px;
+  height: 36px;
+  padding: 0 6px;
+}
+section.playlists > ol.songs > li img{
+  width: 100%;
+}
+section.songs{}
+section.art{}
+
+
