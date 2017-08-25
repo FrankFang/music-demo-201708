@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="./reset.css">
   <link rel="stylesheet" href="./home.css">
+  <link rel="stylesheet" href="./vendors/loaders.min.css">
 </head>
 <body>
   <div class="page">
@@ -69,137 +70,8 @@
         </section>
         <section class="songs">
           <h2 class="sectionTitle">最新音乐</h2>
-          <ol class="list">
-            <li>
-              <h3>Friends <small>(Remix)</small></h3>
-              <p>
-                <svg class="icon icon-sq">
-                  <use xlink:href="#icon-sq"></use>
-                </svg>
-                祁紫檀 - 我有一把枪</p>
-              <a class="playButton" href="#">
-                <svg class="icon icon-play">
-                  <use xlink:href="#icon-play"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <h3>Friends <small>(Remix)</small></h3>
-              <p>
-                <svg class="icon icon-sq">
-                  <use xlink:href="#icon-sq"></use>
-                </svg>
-                祁紫檀 - 我有一把枪</p>
-              <a class="playButton" href="#">
-                <svg class="icon icon-play">
-                  <use xlink:href="#icon-play"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <h3>Friends <small>(Remix)</small></h3>
-              <p>
-                <svg class="icon icon-sq">
-                  <use xlink:href="#icon-sq"></use>
-                </svg>
-                祁紫檀 - 我有一把枪</p>
-              <a class="playButton" href="#">
-                <svg class="icon icon-play">
-                  <use xlink:href="#icon-play"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <h3>Friends <small>(Remix)</small></h3>
-              <p>
-                <svg class="icon icon-sq">
-                  <use xlink:href="#icon-sq"></use>
-                </svg>
-                祁紫檀 - 我有一把枪</p>
-              <a class="playButton" href="#">
-                <svg class="icon icon-play">
-                  <use xlink:href="#icon-play"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <h3>Friends <small>(Remix)</small></h3>
-              <p>
-                <svg class="icon icon-sq">
-                  <use xlink:href="#icon-sq"></use>
-                </svg>
-                祁紫檀 - 我有一把枪</p>
-              <a class="playButton" href="#">
-                <svg class="icon icon-play">
-                  <use xlink:href="#icon-play"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <h3>Friends <small>(Remix)</small></h3>
-              <p>
-                <svg class="icon icon-sq">
-                  <use xlink:href="#icon-sq"></use>
-                </svg>
-                祁紫檀 - 我有一把枪</p>
-              <a class="playButton" href="#">
-                <svg class="icon icon-play">
-                  <use xlink:href="#icon-play"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <h3>Friends <small>(Remix)</small></h3>
-              <p>
-                <svg class="icon icon-sq">
-                  <use xlink:href="#icon-sq"></use>
-                </svg>
-                祁紫檀 - 我有一把枪</p>
-              <a class="playButton" href="#">
-                <svg class="icon icon-play">
-                  <use xlink:href="#icon-play"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <h3>Friends <small>(Remix)</small></h3>
-              <p>
-                <svg class="icon icon-sq">
-                  <use xlink:href="#icon-sq"></use>
-                </svg>
-                祁紫檀 - 我有一把枪</p>
-              <a class="playButton" href="#">
-                <svg class="icon icon-play">
-                  <use xlink:href="#icon-play"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <h3>Friends <small>(Remix)</small></h3>
-              <p>
-                <svg class="icon icon-sq">
-                  <use xlink:href="#icon-sq"></use>
-                </svg>
-                祁紫檀 - 我有一把枪</p>
-              <a class="playButton" href="#">
-                <svg class="icon icon-play">
-                  <use xlink:href="#icon-play"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <h3>Friends <small>(Remix)</small></h3>
-              <p>
-                <svg class="icon icon-sq">
-                  <use xlink:href="#icon-sq"></use>
-                </svg>
-                祁紫檀 - 我有一把枪</p>
-              <a class="playButton" href="#">
-                <svg class="icon icon-play">
-                  <use xlink:href="#icon-play"></use>
-                </svg>
-              </a>
-            </li>
+          <ol id="songs" class="list">
+              <div id="songs-loading" class="square-spin" style="margin: 0 auto; width: 50px;"><div></div></div>
           </ol>
         </section>
         <section class="art">
@@ -221,6 +93,7 @@
 
   <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
   <script src="./vendors/jquery.min.js"></script>
+  <script src="./vendors/av-min.js"></script>
   <script>
     $('.tabs').on('click', 'li', function(e){
       let $li = $(e.currentTarget)
@@ -229,6 +102,46 @@
       $('.tab-content').children().eq(index)
         .addClass('active').siblings().removeClass('active')
     })
+  </script>
+  <script>
+
+var APP_ID = '6Tr6LgcuEE06DFC0wecqGQwi-gzGzoHsz';
+var APP_KEY = 'HSSd244Ik6pDxziDwwAVdwgX';
+
+AV.init({
+  appId: APP_ID,
+  appKey: APP_KEY
+});
+let $olSongs = $('ol#songs')
+
+var query = new AV.Query('Song');
+query.find().then(function (results) {
+  $('#songs-loading').remove()
+  for(var i=0; i<results.length; i++){
+    let song = results[i].attributes
+    let li = `
+            <li>
+              <h3>${song.name}</h3>
+              <p>
+                <svg class="icon icon-sq">
+                  <use xlink:href="#icon-sq"></use>
+                </svg>
+                ${song.singer}
+              </p>
+              <a class="playButton" href="#">
+                <svg class="icon icon-play">
+                  <use xlink:href="#icon-play"></use>
+                </svg>
+              </a>
+            </li>
+    `
+
+    $olSongs.append(li)
+  }
+}, function (error) {
+  alert('获取歌曲失败')
+})
+
   </script>
 </body>
 </html>
