@@ -97,6 +97,7 @@
   <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
   <script src="./vendors/jquery.min.js"></script>
   <script src="./vendors/av-min.js"></script>
+  <script src="./scripts/av.js"></script>
   <script>
     $('.tabs').on('click', 'li', function(e){
       console.log(1)
@@ -109,13 +110,6 @@
   </script>
   <script>
 
-var APP_ID = '6Tr6LgcuEE06DFC0wecqGQwi-gzGzoHsz';
-var APP_KEY = 'HSSd244Ik6pDxziDwwAVdwgX';
-
-AV.init({
-  appId: APP_ID,
-  appKey: APP_KEY
-});
 let $olSongs = $('ol#songs')
 
 var query = new AV.Query('Song');
