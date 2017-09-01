@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist/*; postcss --use autoprefixer --dir dist/ src/*.css;eslint src/*.js &&  babel src/home.js | uglifyjs > dist/home.js; echo 'success';"
+    "build": "rm -rf dist/*; postcss --use autoprefixer --dir dist/ src/*.css;eslint src/*.js &&  babel src/home.js | uglifyjs > dist/home.js; echo 'success';",
+    "build2": "gulp"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "gulp": "^3.9.1",
     "postcss": "^6.0.10",
     "uglify": "^0.1.5"
   },
