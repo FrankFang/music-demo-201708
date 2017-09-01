@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist/*; postcss --use autoprefixer --dir dist/ src/*.css;eslint src/*.js &&  babel src/home.js | uglifyjs > dist/home.js; echo 'success';"
   },
   "author": "",
   "license": "ISC",
