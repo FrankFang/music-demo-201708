@@ -1,5 +1,5 @@
 let $olSongs = $('ol#songs')
-let frank
+let frank = '1'
 
 var query = new AV.Query('Song');
 query.find().then(function (results) {
