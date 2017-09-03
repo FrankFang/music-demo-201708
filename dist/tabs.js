@@ -1,0 +1,1 @@
+"use strict";define(["jquery"],function(e){return function(i){e(i).on("click",".tabs-nav>li",function(i){var n=e(i.currentTarget),s=n.index();n.addClass("active").siblings().removeClass("active"),n.closest(".tabs").find(".tab-content").children().eq(s).addClass("active").siblings().removeClass("active")})}});

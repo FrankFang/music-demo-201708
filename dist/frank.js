@@ -1,0 +1,1 @@
+"use strict";define({name:"frank",age:18});

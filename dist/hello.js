@@ -1,0 +1,1 @@
+"use strict";define(["./frank"],function(n){return{person:n}});
