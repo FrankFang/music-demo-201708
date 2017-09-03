@@ -51,12 +51,12 @@ section.topbar > a::after{
   transform-origin: 0 0;
 }
 
-/* tabs */
-.tabs{
+/* tabs-nav */
+.tabs-nav{
   display: flex;
   border-bottom: 1px solid #CCCCCC;
 }
-.tabs>li{
+.tabs-nav>li{
   width: 33.333333%;
   text-align: center;
   line-height: 20px;
@@ -64,17 +64,17 @@ section.topbar > a::after{
   justify-content: center;
   align-items: center;
 }
-.tabs>li>.text{
+.tabs-nav>li>.text{
   padding: 10px 5px;
   position: relative;
   top: 1px;
 }
-.tabs >li.active{
+.tabs-nav >li.active{
   color: #D43C33;
 }
-.tabs >li.active>.text{ 
+.tabs-nav >li.active>.text{ 
 }
-.tabs >li.active>.text::after{
+.tabs-nav >li.active>.text::after{
   content: '';
   position: absolute;
   height: 2px;

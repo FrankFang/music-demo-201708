@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./vendors/loaders.min.css">
 </head>
 <body>
-  <div class="page">
+  <div class="page tabs">
     <div class="sticky">
       <section class="topbar">
         <div class="logo">
@@ -18,7 +18,7 @@
         <a href="#">下载APP</a>
       </section>
       <section class="globalTabs">
-        <ol class="tabs">
+        <ol class="tabs-nav">
           <li class=active> <div class="text"> 推荐音乐 </div> </li>
           <li><div class="text">热歌榜</div></li>
           <li><div class="text">搜索</div></li>
@@ -95,20 +95,14 @@
   </div>
 
   <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
-  <script src="./vendors/jquery.min.js"></script>
-  <script src="./vendors/av-min.js"></script>
-  <script src="./scripts/av.js"></script>
+  <script data-main="src/main" src="vendors/require.js"></script>
   <script>
-    $('.tabs').on('click', 'li', function(e){
-      console.log(1)
-      let $li = $(e.currentTarget)
-      let index = $li.index()
-      $li.addClass('active').siblings().removeClass('active')
-      $('.tab-content').children().eq(index)
-        .addClass('active').siblings().removeClass('active')
-    })
+    requirejs.config({
+      paths: {
+        jquery: '../vendors/jquery.min',
+        av: '../vendors/av-min'
+      }
+  });
   </script>
-  <script src="src/loadSongs.js"></script>
-  <script src="src/search.js"></script>
 </body>
 </html>
